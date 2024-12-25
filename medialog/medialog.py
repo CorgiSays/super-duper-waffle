@@ -13,11 +13,11 @@ class MediaLogger2(commands.Cog):
             return self.bot.get_channel(int(channel_id))
 
     async def in_ticket_category(self, channel):
-        return (not isinstance(channel, discord.DMChannel)) and str(channel.category_id) == '1127651667073048747'
+        return isinstance(channel, discord.DMChannel) or str(channel.category_id) == '1127651667073048747'
 
     @commands.Cog.listener()
     async def on_message(self, m):
-        if not await self.in_ticket_category(m.channel):
+        if m.author.bot or not await self.in_ticket_category(m.channel):
             return
 
         em = discord.Embed(
