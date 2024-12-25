@@ -13,10 +13,7 @@ class MediaLogger2(commands.Cog):
             return self.bot.get_channel(int(channel_id))
 
     async def in_ticket_category(self, channel):
-        if not isinstance(channel, DMChannel):
-            return str(channel.category_id) == 1127651667073048747
-        else:
-            return True
+        return isinstance(channel, discord.DMChannel) or str(channel.category_id) == '1127651667073048747'
 
     @commands.Cog.listener()
     async def on_message(self, m):
