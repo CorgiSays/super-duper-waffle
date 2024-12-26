@@ -29,21 +29,18 @@ class MediaLogger2(commands.Cog):
         em.set_footer(text=f'U: {m.author.id} | C: {m.channel.id} | M: {m.id}')
         for a in m.attachments:
             if a.filename.endswith('.png') or a.filename.endswith('.jpeg') or a.filename.endswith('.gif') or a.filename.endswith('.jpg'):
-                print('here instead')
                 file = await a.to_file()
                 channel = await self.log_channel()
                 if channel:
                     await channel.send(file=file, embed=em)
             else:
-                print("reached this point")
                 if isinstance(m.channel, discord.DMChannel):
-                    print("reac2hed thi2s poi2nt")
                     warning = discord.Embed(
                         title="Automated Evidence Notice",
                         description="**Upload to a streaming service**\nThe files you have submitted in this ticket cannot be reviewed, as they must be downloaded before they are viewable. Please upload the file to a streaming platform such as YouTube.\nFor images, a .png or .jpg is preferred. You can convert an image using any conversion software found online.\nFor videos, a .mp4 is required. ROBLOX recordings default to a .wmv, which is not supported by Discord. You need to upload it to a streaming platform such as <https://www.veed.io/> or <https://www.youtube.com/> .",
                         color=self.bot.main_color
                     )
-                    await channel.send(embed=warning)
+                    await m.channel.send(embed=warning)
 
 
     @checks.has_permissions(PermissionLevel.MODERATOR)
