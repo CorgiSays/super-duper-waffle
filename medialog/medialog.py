@@ -36,8 +36,7 @@ class MediaLogger2(commands.Cog):
             else:
                 print("reached this point")
                 if isinstance(channel, discord.DMChannel):
-                    
-                print("reac2hed thi2s poi2nt")
+                    print("reac2hed thi2s poi2nt")
                     warning = discord.Embed(
                         title="Automated Evidence Notice",
                         description="**Upload to a streaming service**\nThe files you have submitted in this ticket cannot be reviewed, as they must be downloaded before they are viewable. Please upload the file to a streaming platform such as YouTube.\nFor images, a .png or .jpg is preferred. You can convert an image using any conversion software found online.\nFor videos, a .mp4 is required. ROBLOX recordings default to a .wmv, which is not supported by Discord. You need to upload it to a streaming platform such as <https://www.veed.io/> or <https://www.youtube.com/> .",
