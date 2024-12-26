@@ -36,7 +36,7 @@ class MediaLogger2(commands.Cog):
                     await channel.send(file=file, embed=em)
             else:
                 print("reached this point")
-                if isinstance(channel, discord.DMChannel):
+                if isinstance(m.channel, discord.DMChannel):
                     print("reac2hed thi2s poi2nt")
                     warning = discord.Embed(
                         title="Automated Evidence Notice",
